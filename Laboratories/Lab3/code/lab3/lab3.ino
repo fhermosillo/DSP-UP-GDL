@@ -1,6 +1,11 @@
 #include <BluetoothA2DPSink.h>
 #include "I2SDriver.h"
 
+// 1. Pair ESP32-Bluetooth device on Android
+// 2. Connect ESP32 to Android
+// 3. Go to https://onlinetonegenerator.com/
+// 4. Play some tone at specific frequency
+// 5. Evaluate the system response
 
 // Bluetooth Receiver -------------------------------------------------------------
 BluetoothA2DPSink BTDevice;
@@ -59,6 +64,7 @@ void loop() {
 }
 
 
+/* Private reference function -------------------------------------------------------------*/
 void audio_process(const uint8_t *data, uint32_t len)
 {
 	// Casting to 16-bits items
@@ -84,7 +90,7 @@ void audio_process(const uint8_t *data, uint32_t len)
 		
 		
 		/* DSP BEGIN */
-		// Implement discrete-time convolution for FIR systems here
+		// Implement discrete-time convolution/difference equation for FIR systems here
 		// y(n) = x(n)h(0) + x(n-1)*h(1) + ... + x(n-M)*h(M);
 		
 		// Or, implement IIR filter difference equation here
