@@ -40,10 +40,10 @@ class WaveGenertor {
   public:
     WaveGenertor(float Fs);
     
-    void setWaveform(waveform_t wave);
+    void setWaveform(waveform_t wave, bool rt=false);
     void setFrequency(float F);
     void setAmplitude(float A);
-    
+    void setRealTime(bool rt);
     float sample(uint32_t n);
     
     ~WaveGenertor();
@@ -54,8 +54,12 @@ class WaveGenertor {
     uint32_t mN;
     uint32_t mNhalf;
     float mA;
+    float mFd;
+    bool mRT;
     waveform_t mWaveform;
     float buf[1024];
+
+    float sampleRT(uint32_t n);
 };
 
 #endif /* __WAVE_GENERATOR_H */
